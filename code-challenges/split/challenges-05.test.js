@@ -38,14 +38,22 @@ let $ = createSnippetWithJQuery(`
 `);
 
 const templateWithJQuery = () => {
-    let starWarsPeople2=JSON.parse('starWarsPeople');
-    starWarsPeople2.forEach(e,function(){
-        $('#template').clone();
-        $('template h2').html("starWarsPeaple2[e].name");
-        $('template h3').html("starWarsPeaple2[e].height");
-        $('template p').html("starWarsPeaple2[e].eye_color");
-    })
-    $('#template').remove();
+    
+  starWarsPeople.forEach (data=>{
+    let item = $('#template').clone();
+    item.removeAttr('id');
+    item.find('h2').html(data.name);
+    item.find('h3').html(data.height);
+    item.find('p').html(data.eye_color);
+    item.appendTo('main');
+
+})
+        
+        // $('template h2').html("starWarsPeaple2[e].name");
+        // $('template h3').html("starWarsPeaple2[e].height");
+        // $('template p').html("starWarsPeaple2[e].eye_color");
+    // };
+    // $('#template').remove();
   // Solution code here...
 }
 
@@ -63,13 +71,26 @@ For example, if the input is 'Welcome', the output will be:
 ['Welcome', 'elcome', 'lcome', 'come', 'ome', 'me', 'e', ''].
 ------------------------------------------------------------------------------------------------ */
 
+// const howMuchPencil = (str) => {
+//   let result = [];
+//   for(let i = 0 ; i < str.length ; i++){
+//     // let trimmed = str.slice(i,str.length);
+//     // result.push(trimmed);
+//     result[i]=str;
+//     str=str.slice(i);
+//   }
+//   // result[str.length]=" ";
+//   // Solution code here...
+//   return result;
+// };
 const howMuchPencil = (str) => {
   let result = [];
-  for(let i =1 ; i < (str.length) ; i++){
-    var trimmed = str.slice(i,str.length);
-    result.push(trimmed);
-  }
   // Solution code here...
+  let strLength = str.length;
+  for(let i = 0 ; i < strLength+1;i++){
+    result[i]= str;
+    str= str.slice(1);
+  }
   return result;
 };
 
@@ -131,15 +152,32 @@ const gruffaloCrumble = {
 };
 
 
+// const listFoods = (recipe) => {
+//   let result = [];
+//   // recipe.forEach(e,function(){
+//   //   let ingr = recipe.ingredients[e].split(" ");
+//   //   let ingr2 = ingr.slice(ing.length,0);
+//   //   result.push(ingr2);
+//   // })
+//   let ingr = gruffaloCrumble['ingredients'];
+//   ingr.forEach(e => {
+//     let indexspace1 = e.indexOf(' ');
+//     let indexspace2 = e.indexOf(' ',indexspace1);
+//     result.push(e.slice(indexspace2,indexspace2+indexspace1));
+//   });
+//   // Solution code here...
+//   return result;
+// };
+
 const listFoods = (recipe) => {
   let result = [];
-  recipe.forEach(e,function(){
-    let ingr = recipe.ingredients[e].split(" ");
-    let ingr2 = ingr.slice(ing.length,0);
-    result.push(ingr2);
+  let e=recipe['ingredients'];
+  e.forEach((data)=>{
+   let index1=data.indexOf(' ');
+   let index2=data.indexOf(' ',index1+1);
+   //console.log(data.slice(indexSpaceTwo+1))
+   result.push(data.slice(index2+1));
   })
-  
-  // Solution code here...
   return result;
 };
 
