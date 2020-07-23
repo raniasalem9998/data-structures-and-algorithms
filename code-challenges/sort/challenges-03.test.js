@@ -52,16 +52,17 @@ For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetize = (arr) => {
-    arr.sort(function(a, b) {
-        if (a == a.toUpperCase()){
-        let v = a,
-        }
-        else if(b == b.toLowerCase()){
-        let c = b,  
-        }
+    // arr.sort(function(a, b) {
+    //     if (a == a.toUpperCase()){
+    //     let v = a,
+    //     }
+    //     else if(b == b.toLowerCase()){
+    //     let c = b,  
+    //     }
         
-        return parseFloat(a) - parseFloat(b)
-    });
+    //     return parseFloat(a) - parseFloat(b)
+    // });
+    return arr.sort();
   // Solution code here...
   
 };
@@ -75,10 +76,12 @@ the same array, with the strings sorted by their length, lowest to highest.
 
 const sortByLength = (arr) => {
     
-    arr.forEach(e => {
-        let l = e.length;
-        
-    }); 
+    // arr.forEach(e => {
+    //     let l = e.length;
+    // }); 
+    return  arr.sort(function(a, b) {
+      return a.length - b.length;
+  });
     
   // Solution code here...
 };
@@ -92,13 +95,18 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetizeBetter = (arr) => {
+  return  arr.sort(function(a, b) {
+    
+    return a.toLowerCase().localCompare(b.toLowerCase())  ;
+});
   // Solution code here...
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
 
-Write a function named sortByPrice that takes in an array of objects, each of which has a 'price' property, and sorts those objects by price, lowest to highest, returning the same array.
+Write a function named sortByPrice that takes in an array of objects, 
+each of which has a 'price' property, and sorts those objects by price, lowest to highest, returning the same array.
 
 Here is an example of the input:
 [
@@ -109,6 +117,9 @@ Here is an example of the input:
 ------------------------------------------------------------------------------------------------ */
 
 const sortByPrice = (arr) => {
+  return arr.sort(function(a,b){
+    a.price-b.price;
+  })
   // Solution code here...
 };
 
