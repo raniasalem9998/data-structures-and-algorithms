@@ -61,15 +61,11 @@ Write a function named isCapitalized that takes in a string.
 Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
-const isCapitalized = (str) =>  (str.match(/[A-Z][\w]*/g) || []);
-// {
-//   let array =[];
-//   let re = /[A-Z][\w]*/g
-//   array.push( str.match(re)); 
-//   return array  ;
-  // str.match(/[A-Z][\w]*/g) 
+const isCapitalized = (str) => {
+  let re = /\b[A-Z]\w+/g
+  return str.match(re);   
   // Solution code here...
-// };
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -79,37 +75,15 @@ Write a function named citiesAtoJ that takes in an
  pattern to return a new array containing any cities that begin with the letters A through J, inclusive.
 ------------------------------------------------------------------------------------------------ */
 
+
 const citiesAtoJ = (arr) => {
- let str = arr.join(" ");
- let regex = /[A-J]\w*/g;
- if ( regex.test(str)){
-  return str.match(regex);
- }
- 
-};
-// let cities = ['Cleveland', 'San Diego', 'Birmingham', 'Seattle', 'Miami', 'New York City', 'Omaha', 'Portland', 'Austin', 'Boston', 'Newport Beach', 'Hoboken'];
-
-// var str2=cities.forEach(e,function(){
-//  e.replace(" ","-");
-
-
-//  })
-// var str= cities.join(' ');
-
-
-// console.log(str)
-
-
-// const citiesAtoJ = (arr) => {
-
-// let regex=/[A-J]\w+/g;
-// let array = [];
-// // array.push()
-// return arr.match(regex);
-// };
-// console.log(citiesAtoJ(str))
-
-
+  let str = arr.join(" ");
+  let regex = /[A-J]\w*/g;
+  if ( regex.test(str)){
+   return str.match(regex);
+  }
+  
+ };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
 
