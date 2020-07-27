@@ -73,12 +73,14 @@ let $ = createSnippetWithJQuery(`
 `);
 
 const templatingWithMustache = () => {
-    for (let i = 0 ; i< characters.length ; i++){
-    let mustacheTemplate = $('#template').html();
-    let newObject = Mustache.render(mustacheTemplate, characters[i]);
-    
-    return newObject;
-    }
+   let temp = $('#template').html();
+   let arr = [];
+   characters.forEach(e => {
+     let result = Mustache.render(temp,e);
+     $('template').append(result);
+     arr.push(result);
+   });
+    return arr;
   // Solution code here...
 };
 
