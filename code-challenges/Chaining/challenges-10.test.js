@@ -12,18 +12,34 @@ Build a simple express server. Connect a '/hello' route that sends
 
 const createServer = () => {
   // Solution code here...
+  const express = require('express');
+  const app = express();
+
 
   var server = app.listen(3301, function () {
     var port = server.address().port;
     console.log('Example app listening at port', port);
-
-  
-
   });
-  app.all('*', (req, res) => {
-    res.status(404).send('error 404');
-  
+
+  app.get('/hello',(req,res)=>{
+    res.status(200).send('hello')
+  })
+
+  app.get('/aboutme',(req,res)=>{
+    res.status(200).send('a little girl in a big world')
+  })
+
+
+  app.get('/favoritefoods',(req,res)=>{
+    let arr=['msakhan','tea&milk','mac&cheese'];
+    res.status(200).send(arr)
+  })
+
+   
+   app.all('*', (req, res) => {
+    res.status(404).send('Not Found');
   });
+
   return server;
 };
 
