@@ -40,17 +40,17 @@ For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyv
 ------------------------------------------------------------------------------------------------ */
 
 const toTitleCase = (arr) => {
-    return arr.forEach(element=>{
+    return arr.map(element=>{
         let ch = element.split('');
         let first = ch[0];
-        let up = first.toUpperCase();
-        ch.shift()
-        ch.unshift(up)
+        ch[0] = first.toUpperCase();
 
         return ch.join('');
     })
+    
   // Solution code here...
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -155,15 +155,13 @@ This data could be sorted by name or price.
 const sortBy = (property, arr) => {
 
     return arr.sort((a, b) =>{
-        if(a.property == b.property || a.property < b.property){
-          return 1;
-        }
-        else{
-          return -1;
-        } 
-    })
+        return (a[property] > b[property])
+    
+    
   // Solution code here...
-};
+})
+}
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
